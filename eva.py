@@ -34,6 +34,7 @@ def ssim(img1,img2):
 psnrValue=0
 ssimValue=0
 
+#generate all images in the test folder and calculate the average value
 for i in range(3000):
     original = cv2.imread("./result/gt/test_{:d}.jpg".format(i))
     contrast = cv2.imread("./result/output/test_{:d}.jpg".format(i)) 

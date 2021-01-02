@@ -121,11 +121,11 @@ for i in tqdm(range(start_iter, args.max_iter)):
     optimizer.zero_grad()
     loss.backward()
     optimizer.step()
-
+    #save interval model
     if (i + 1) % args.save_model_interval == 0 or (i + 1) == args.max_iter:
         save_ckpt('{:s}/ckpt/{:d}.pth'.format(args.save_dir, i + 1),
                   [('model', model)], [('optimizer', optimizer)], i + 1)
-
+    #save interval images
     if (i + 1) % args.vis_interval == 0:
         model.eval()
         evaluate(model, dataset_val, device,

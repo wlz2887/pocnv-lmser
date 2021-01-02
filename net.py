@@ -203,7 +203,7 @@ if __name__ == '__main__':
     input.requires_grad = True
 
     output, output_mask = conv(input, input_mask)
-    #Try to add reflections
+    #Reflections in teh perception phase
     for cnt in range(2):
         output,output_mask = conv(output, output_mask)
     loss = l1(output, torch.randn(1, 3, 5, 5))
